@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public static GameObject player;
     public static PlayerMovement playerMovement;
+    public static GenerateObstacle Obstacle;
     void Start()
     {
        
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.Reset();
+            Obstacle.Reset();
         }
        
     }

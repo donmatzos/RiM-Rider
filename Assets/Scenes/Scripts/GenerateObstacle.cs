@@ -8,13 +8,17 @@ using Random = UnityEngine.Random;
 public class GenerateObstacle : MonoBehaviour
 {
     public GameObject CubeObj;
+    public GameObject RiMGameObject;
     public List<GameObject> obstacleList;
+    private  List<GameObject> _gameObjects;
     private Vector3 Pos;
     private bool next;
     private int value = 1;
     public int lastpos = 1;
     public float[] posX;
     public float[] posZ;
+
+    
     // Update is called once per frame
     private int[,]   obstacleMap;
     private const int obstacleMapLength = 1000;
@@ -27,20 +31,33 @@ public class GenerateObstacle : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Obstacle = this;
         InitMap();
     }
 
     private void InitMap()
     {
+        _gameObjects = new List<GameObject>();
         obstacleMap = new int[obstacleMapLength,obstacleMapLanes];
+        GenerateRims();
         FillMap();
+    }
+
+    public void Reset()
+    {
+        foreach (var o in _gameObjects)
+        {
+            Destroy(o);
+        }
+        InitMap();
     }
 
     private void FillMap()
     {
-        var startOffset = (int)(obstacleMapLength * 0.1);
+        var startOffset = (int)(obstacleMapLength * 0.05);
+        var endOffset = 15;
         var curObstacleOffset = GetRandomOffsetObstacleNumber();;
-        for (var i = startOffset; i < obstacleMapLength; i++)
+        for (var i = startOffset; i < obstacleMapLength-endOffset; i++)
         {
             if (curObstacleOffset == 0)
             {
@@ -51,6 +68,47 @@ public class GenerateObstacle : MonoBehaviour
 
             curObstacleOffset--;
         }
+    }
+
+    private void GenerateRims()
+    {
+        int maxRims = 5;
+        int step = obstacleMapLength/maxRims;
+        int range = 50;
+        for (int i = 1; i <= maxRims; i++)
+        {
+            int pos=Random.Range((step*i) - range, (step*i) + range);
+            PlaceRim(pos);
+        }
+    }
+    
+    private int PlaceRim(int pos)
+    {
+        int lane = 1;
+        var randomObjectNum = 1;
+
+        var randomObject = RiMGameObject;
+        float lengthObject = 50;
+        Debug.Log("RimLeng="+lengthObject);
+        if(!IsMapPositionsEmpty(pos,pos+ (int)lengthObject)) return 0;
+        
+        for (int i = -( (int)lengthObject/2); i < (int)lengthObject/2; i++)
+        {
+            if (pos + i < obstacleMap.Length)
+            {
+                obstacleMap[pos+i, lane] = randomObjectNum;
+            }
+            
+        }
+        float posY = 0.1F;
+       
+        Vector3 Pos = new Vector3(0,posY,pos);
+       
+        GameObject clone = Instantiate(randomObject, Pos, randomObject.transform.rotation);
+        clone.transform.SetParent(this.transform);
+        Debug.Log("rimpos="+clone.transform.position.z);
+        _gameObjects.Add(clone);
+        return (int) lengthObject;
     }
 
     private int PlaceRandomObstacle(int pos, int lane)
@@ -81,7 +139,7 @@ public class GenerateObstacle : MonoBehaviour
         GameObject clone = Instantiate(randomObject, Pos, randomObject.transform.rotation);
         clone.GetComponent<ObstacleScript>().myNum=randomObjectNum;
         clone.transform.SetParent(this.transform);
-      
+        _gameObjects.Add(clone);
         
         return (int) lengthObject;
     }
@@ -106,7 +164,12 @@ public class GenerateObstacle : MonoBehaviour
 
     private bool IsMapPositionEmpty(int pos)
     {
-        return obstacleMap[pos, 0] == 0 && obstacleMap[pos, 1] == 0 && obstacleMap[pos, 2] == 0;
+        if (pos < obstacleMapLength)
+        {
+            return obstacleMap[pos, 0] == 0 && obstacleMap[pos, 1] == 0 && obstacleMap[pos, 2] == 0;
+        }
+
+        return false;
     }
 
     private int GetRandomLaneNumber()

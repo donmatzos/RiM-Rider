@@ -21,6 +21,8 @@ public class RiMController : MonoBehaviour
         //transform.position = new Vector3(value, transform.position.y, transform.position.z);
         //hole.transform.position =new Vector3(posXHole, 0, 0);
         //passingPlate.transform.position =new Vector3(posXPassingPlate, 0, 0);
+
+      
         Random random = new Random();
         var randPos = random.Next(0, 2);
         if (randPos == 0)
@@ -33,12 +35,23 @@ public class RiMController : MonoBehaviour
             posXHole1 = 2;
             posXStripe = -2;
         }
-        Vector3 posHole1 = new Vector3(posXHole1, transform.parent.position.y, transform.parent.position.z);
-        Vector3 posHole2 = new Vector3(posXHole2, transform.parent.position.y, transform.parent.position.z);
-        Vector3 posStripe = new Vector3(posXStripe, transform.parent.position.y, transform.parent.position.z);
-        Vector3 posPlate = new Vector3(posXPassingPlate, (float)(transform.parent.position.y-0.5), transform.parent.position.z+3);
+
+        float offsetZ=0;
+        
+        Debug.Log("par="+transform.parent.position.z);
+        if (transform.parent.position.z==0)
+        {
+            offsetZ = -100;
+        }
+        
+        Vector3 posHole1 = new Vector3(posXHole1, transform.parent.position.y, offsetZ+transform.parent.position.z);
+     
+        Vector3 posHole2 = new Vector3(posXHole2, transform.parent.position.y, offsetZ+transform.parent.position.z);
+        Vector3 posStripe = new Vector3(posXStripe, transform.parent.position.y, offsetZ+transform.parent.position.z);
+        Vector3 posPlate = new Vector3(posXPassingPlate, (float)(transform.parent.position.y-0.5), offsetZ+transform.parent.position.z+3);
         GameObject holeClone1 = Instantiate(hole, posHole1,hole.transform.rotation);
         holeClone1.transform.SetParent(this.transform);
+        Debug.Log("phol1="+holeClone1.transform.position.z);
         GameObject holeClone2 = Instantiate(hole, posHole2,hole.transform.rotation);
         holeClone2.transform.SetParent(this.transform);
         GameObject stripeClone = Instantiate(rimStripe, posStripe,rimStripe.transform.rotation);
