@@ -1,0 +1,11 @@
+Model Information:
+* title:	Street Comics
+* source:	https://sketchfab.com/3d-models/street-comics-3005a480954147a19edc2ca3e663a940
+* author:	shakiller (https://sketchfab.com/shakiller)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Street Comics" (https://sketchfab.com/3d-models/street-comics-3005a480954147a19edc2ca3e663a940) by shakiller (https://sketchfab.com/shakiller) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
