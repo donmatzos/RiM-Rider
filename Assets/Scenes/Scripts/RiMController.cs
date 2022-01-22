@@ -9,6 +9,7 @@ namespace Scenes.Scripts
 
         public GameObject passingPlate;
         public GameObject rimStripe;
+        public GameObject rimStripeCenter;
         private float posXHole1=2;
         private float posXHole2=0;
         private float posXStripe=0;
@@ -46,6 +47,7 @@ namespace Scenes.Scripts
      
             Vector3 posHole2 = new Vector3(posXHole2, transform.parent.position.y, offsetZ+transform.parent.position.z);
             Vector3 posStripe = new Vector3(posXStripe, transform.parent.position.y, offsetZ+transform.parent.position.z);
+            Vector3 posStripeCenter = new Vector3(0, transform.parent.position.y, offsetZ+transform.parent.position.z-10);
             Vector3 posPlate = new Vector3(posXPassingPlate, (float)(transform.parent.position.y-0.5), offsetZ+transform.parent.position.z+3);
             GameObject holeClone1 = Instantiate(hole, posHole1,hole.transform.rotation);
             holeClone1.transform.SetParent(this.transform);
@@ -54,6 +56,8 @@ namespace Scenes.Scripts
             holeClone2.transform.SetParent(this.transform);
             GameObject stripeClone = Instantiate(rimStripe, posStripe,rimStripe.transform.rotation);
             stripeClone.transform.SetParent(this.transform);
+            GameObject stripeCenterClone = Instantiate(rimStripeCenter, posStripeCenter,rimStripeCenter.transform.rotation);
+            stripeCenterClone.transform.SetParent(this.transform);
             GameObject plateClone = Instantiate(passingPlate, posPlate,passingPlate.transform.rotation);
             plateClone.transform.SetParent(this.transform);
         }

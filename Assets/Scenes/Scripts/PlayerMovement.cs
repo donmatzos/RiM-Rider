@@ -7,7 +7,7 @@ namespace Scenes.Scripts
     public class PlayerMovement : MonoBehaviour
     {
         private static float laneWidth = 2;
-
+        public SwipeManager swipeControls;
         [Range(-2,2)] public float value;
         public float Speed;
         private Rigidbody rigid;
@@ -26,6 +26,8 @@ namespace Scenes.Scripts
         // Start is called before the first frame update
         void Start()
         {
+            swipeControls = gameObject.AddComponent<SwipeManager>();
+            
             startPos = transform.position;
             setActualSpeed();
             rigid = GetComponent<Rigidbody>();
@@ -69,7 +71,7 @@ namespace Scenes.Scripts
                 return;
             }
         
-            if (Input.anyKey && !gameIsStarted)
+            if ((Input.anyKey || swipeControls.Tap)&& !gameIsStarted)
             {
                 gameIsStarted = true;
                 speedMultiplikator = 1F;
@@ -81,8 +83,8 @@ namespace Scenes.Scripts
             {
                 return;
             }
-
-            if (Input.GetButtonDown("Right"))
+    
+            if (Input.GetButtonDown("Right") || swipeControls.SwipeRight)
             {
                 if (value == laneWidth)
                 {
@@ -100,7 +102,7 @@ namespace Scenes.Scripts
                 }
             }
         
-            if (Input.GetButtonDown("Left"))
+            if (Input.GetButtonDown("Left") || swipeControls.SwipeLeft)
             {
                 if (value == -laneWidth)
                 {
@@ -134,7 +136,7 @@ namespace Scenes.Scripts
         private IEnumerator transformValue(Direction direction)
         {
             isInTransition = true;
-            float stepSize = 0.05F;
+            float stepSize = 0.25F;
             float totalSteps = laneWidth / stepSize;
             float waitTime =  transitionDuration/totalSteps;
             for (int i = 0; i < totalSteps-1; i++)

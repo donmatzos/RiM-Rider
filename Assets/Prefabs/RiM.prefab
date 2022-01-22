@@ -47,6 +47,7 @@ MonoBehaviour:
   hole: {fileID: 2965228933385020306, guid: 0ee82b792b6421d4fa9adf591b357f13, type: 3}
   passingPlate: {fileID: 4922183773329547989, guid: b74d5cefd6c0a3741b24244db370745f, type: 3}
   rimStripe: {fileID: 2384637224302412499, guid: b0986285ed024d642ba55a23f05cf215, type: 3}
+  rimStripeCenter: {fileID: 2384637224302412499, guid: 092f602769bbe374facccd771972a84e, type: 3}
 --- !u!1 &7099052925407920965
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,7 @@ namespace Scenes.Scripts
             obstacleMap = new int[ObstacleMapLength,ObstacleMapLanes];
             GenerateRims();
             FillMap();
+            
         }
 
         public void Reset()
@@ -53,11 +54,13 @@ namespace Scenes.Scripts
             var curObstacleOffset = GetRandomOffsetObstacleNumber();;
             for (var i = startOffset; i < ObstacleMapLength-endOffset; i++)
             {
+              
                 if (curObstacleOffset == 0)
                 {
                     //Place obstacle here
                     curObstacleOffset=PlaceRandomObstacle(i,GetRandomLaneNumber());
                     curObstacleOffset += GetRandomOffsetObstacleNumber();
+                    //  Debug.Log("MAP{l1="+obstacleMap[i,0]+";l2="+obstacleMap[i,1]+";l3="+obstacleMap[i,2]+"}");
                 }
                 curObstacleOffset--;
             }
@@ -84,9 +87,10 @@ namespace Scenes.Scripts
             Debug.Log("RimLeng="+lengthObject);
             if(!IsMapPositionsEmpty(pos,pos+ (int)lengthObject)) return 0;
         
-            for (var i = -((int)lengthObject/2); i < (int)lengthObject/2; i++)
+            for (var i =- ((int)lengthObject/2); i < ((int)lengthObject/2); i++)
             {
-                if (pos + i < obstacleMap.Length)
+               
+                if (pos + i < ObstacleMapLength)
                 {
                     obstacleMap[pos+i, lane] = randomObjectNum;
                 }
@@ -95,7 +99,7 @@ namespace Scenes.Scripts
             Vector3 Pos = new Vector3(0,posY,pos);
             GameObject clone = Instantiate(randomObject, Pos, randomObject.transform.rotation);
             clone.transform.SetParent(this.transform);
-            Debug.Log("rimpos="+clone.transform.position.z);
+           
             _gameObjects.Add(clone);
             return (int) lengthObject;
         }
@@ -105,8 +109,12 @@ namespace Scenes.Scripts
             var randomObjectNum = GetRandomObstacleNumber();
             var randomObject = GetRandomObject(randomObjectNum);
             float lengthObject = GetMaxSizeObstacle(randomObject);
+            if (lengthObject < 1)
+            {
+                lengthObject = 2;
+            }
         
-            if (!IsMapPositionsEmpty(pos,pos+ (int)lengthObject)) return 0;
+            if (!IsMapPositionsEmpty(pos-((int)lengthObject/2),pos+ ((int)lengthObject/2))) return 0;
             for (int i = 0; i < lengthObject; i++)
             {
                 if (pos + i < obstacleMap.Length)
@@ -149,7 +157,7 @@ namespace Scenes.Scripts
 
         private bool IsMapPositionEmpty(int pos)
         {
-            if (pos < ObstacleMapLength)
+            if (pos>0 && pos < ObstacleMapLength)
             {
                 return obstacleMap[pos, 0] == 0 && obstacleMap[pos, 1] == 0 && obstacleMap[pos, 2] == 0;
             }
@@ -168,7 +176,7 @@ namespace Scenes.Scripts
     
         private int GetRandomOffsetObstacleNumber()
         {
-            return Random.Range(5, 20);
+            return Random.Range(10, 20);
         }
 
         IEnumerator WaitSys()

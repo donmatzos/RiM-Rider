@@ -9,6 +9,7 @@ namespace Scenes.Scripts
         public static GameObject player;
         public static PlayerMovement playerMovement;
         public static GenerateObstacle Obstacle;
+        private static FloatingText curFloatingText = null;
         void Start()
         {
        
@@ -39,11 +40,21 @@ namespace Scenes.Scripts
                 Obstacle.Reset();
             }
         }
+
+        private static void DestroyFloatingText()
+        {
+            if (curFloatingText != null)
+            {
+                curFloatingText.HideText();
+                
+                curFloatingText = null;
+            }
+        }
     
         public static void ShowFloatingTextPopup(string text, Color c)
         {
-            Debug.Log("Player="+player.transform.position);
-
+            DestroyFloatingText();
+            
             Transform cam = Camera.main.transform;
             Vector3 pos=cam.position;
             pos.y += 2;
@@ -55,11 +66,12 @@ namespace Scenes.Scripts
             floatingText.SetText(text);
             floatingText.SetColor(c);
             floatingText.ShowText();
+            curFloatingText = floatingText;
         }
     
         public static FloatingText ShowFloatingText(string text, Color c)
         {
-            Debug.Log("Player="+player.transform.position);
+           DestroyFloatingText();
 
             Transform cam = Camera.main.transform;
             Vector3 pos=cam.position;
@@ -71,6 +83,7 @@ namespace Scenes.Scripts
             // floatingText.GetComponent<TextMesh>().text = text;
             floatingText.SetText(text);
             floatingText.SetColor(c);
+            curFloatingText = floatingText;
             return floatingText;
         }
     
