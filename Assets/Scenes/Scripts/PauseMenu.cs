@@ -8,25 +8,11 @@ namespace Scenes.Scripts
         public static bool GameIsPaused = false;
     
         public GameObject pauseMenuUI;
+        public GameObject pauseButtonUI;
 
-        // Update is called once per frame
-        void Update()
+        public void Pause()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (GameIsPaused)
-                {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
-            }
-        }
-
-        void Pause()
-        {
+            pauseButtonUI.SetActive(false);
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
@@ -34,6 +20,7 @@ namespace Scenes.Scripts
 
         public void Resume()
         {
+            pauseButtonUI.SetActive(true);
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
             GameIsPaused = false;
