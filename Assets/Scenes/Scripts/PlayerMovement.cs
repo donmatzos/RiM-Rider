@@ -60,6 +60,7 @@ namespace Scenes.Scripts
             startFloatingText = GameManager.ShowFloatingText(startText,startTextColor);
             transform.position = startPos;
             speedMultiplikator = 0;
+            value = 0;
             setActualSpeed();
             gameIsStarted = false;
         }
@@ -80,6 +81,31 @@ namespace Scenes.Scripts
             }
         
             if (!gameIsStarted)
+            {
+                return;
+            }
+            
+            if (Application.platform == RuntimePlatform.Android) {
+        
+                // Check if Back was pressed this frame
+                if (Input.GetKeyDown(KeyCode.Escape)) {
+                    GameObject canvas = GameObject.Find("Canvas");
+                    PauseMenu pauseMenu = canvas.GetComponent<PauseMenu>();
+                    if (PauseMenu.GameIsPaused)
+                    {
+                     
+                       pauseMenu.Resume();
+                    }
+                    else
+                    {
+                        pauseMenu.Pause();
+                    }
+                    // Quit the application
+                    
+                }
+            }
+
+            if (PauseMenu.GameIsPaused)
             {
                 return;
             }
@@ -136,7 +162,7 @@ namespace Scenes.Scripts
         private IEnumerator transformValue(Direction direction)
         {
             isInTransition = true;
-            float stepSize = 0.25F;
+            float stepSize = 0.45F;
             float totalSteps = laneWidth / stepSize;
             float waitTime =  transitionDuration/totalSteps;
             for (int i = 0; i < totalSteps-1; i++)

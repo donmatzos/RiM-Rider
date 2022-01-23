@@ -18,6 +18,10 @@ namespace Scenes.Scripts
         {
             if (other.tag == "Player")
             {
+                GameManager.AudioController.PlayAudio(AudioFiles.WIN);
+                GameObject canvas = GameObject.Find("Canvas");
+                PauseMenu pauseMenu = canvas.GetComponent<PauseMenu>();
+                pauseMenu.pauseButtonUI.SetActive(false);
                 GameManager.StopPlayer();
                 StartCoroutine(Wait());
                 finishMenuUI.SetActive(true);

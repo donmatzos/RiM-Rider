@@ -18,6 +18,7 @@ namespace Scenes.Scripts
         {
             if (other.CompareTag("Player"))
             {
+                GameManager.AudioController.PlayAudio(AudioFiles.CRASH);
                 GameManager.StopPlayer();
                 GameManager.ShowFloatingTextPopup("YOU CRASHED!", Color.red);
                 StartCoroutine(CallbackReset());

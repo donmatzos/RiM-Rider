@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 559900635482061774}
   - component: {fileID: -1283206389935095657}
   - component: {fileID: -4650100308414330226}
+  - component: {fileID: -6500917872840764148}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -125,3 +126,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6500917872840764148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965228933385020306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fb466e3a5389f4398b3c0621d06c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 4368999304477696340, guid: 565c53f4a5866f244bea1c353987cb69, type: 3}

@@ -17,6 +17,7 @@ namespace Scenes.Scripts
             if (other.tag == "Player")
             {
                 //  GameManager.DoFloatingText(popupPos,"GOOD JOB", Color.green);
+                GameManager.AudioController.PlayAudio(AudioFiles.RIMJOB);
                 GameManager.ShowFloatingTextPopup("GOOD RIMJOB!", Color.green);
             }
         }

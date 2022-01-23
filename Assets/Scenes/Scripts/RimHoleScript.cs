@@ -22,6 +22,7 @@ namespace Scenes.Scripts
                 Vector3 popupPos = other.transform.position;
                 popupPos.y += 2;
                 //  GameManager.DoFloatingText(popupPos,"GOOD JOB", Color.green);
+                GameManager.AudioController.PlayAudio(AudioFiles.RIMMED);
                 GameManager.StopPlayer();
                 GameManager.ShowFloatingTextPopup("YOU GOT RIMMED!", Color.red);
                 StartCoroutine(CallbackReset());

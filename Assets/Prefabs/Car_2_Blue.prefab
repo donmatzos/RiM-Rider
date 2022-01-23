@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 2315196}
   - component: {fileID: 3668316982405055687}
   - component: {fileID: 6966585810209600665}
+  - component: {fileID: 7775605617066178854}
   m_Layer: 0
   m_Name: Car_2_Blue
   m_TagString: Untagged
@@ -285,6 +286,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.052652214, y: 0.013264355, z: 0.020943196}
   m_Center: {x: 0.000042407784, y: 0.000832587, z: -4.656614e-10}
+--- !u!114 &7775605617066178854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fb466e3a5389f4398b3c0621d06c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 7894991922348382685, guid: 3d5dd392adc6f5846b36c9ce2327e45e, type: 3}
 --- !u!1 &181436
 GameObject:
   m_ObjectHideFlags: 0

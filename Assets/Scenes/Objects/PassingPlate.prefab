@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8184310354332824590}
   - component: {fileID: 6103880878729753474}
   - component: {fileID: -7628026280946818357}
+  - component: {fileID: -2738801942728069462}
   m_Layer: 0
   m_Name: PassingPlate
   m_TagString: Untagged
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9619bb0546ee0747be8bed49ee1442c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2738801942728069462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922183773329547989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fb466e3a5389f4398b3c0621d06c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 6054167091667942614, guid: bf9d33c4c2087264fa20d2e68c75f59a, type: 3}
