@@ -22,8 +22,8 @@
 | ----------- | ----------- |
 | Game Setup | Team |
 | World Setup | MG |
-| Dynamic Level Generation (Obstacles, RiM, Surroundings) | PK |
-| Player Movements | PK |
 | Menus | MG |
 | Settings | MG |
+| Dynamic Level Generation (Obstacles, RiM, Surroundings) | PK |
+| Player Movements | PK |
 | Game Logic | Team |

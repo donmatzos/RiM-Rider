@@ -1,29 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
-using Scenes.Scripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class FinishLineScript : MonoBehaviour
+namespace Scenes.Scripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class FinishLineScript : MonoBehaviour
     {
-        
-    }
+        public GameObject finishMenuUI;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        public void Replay()
         {
-            //  GameManager.DoFloatingText(popupPos,"GOOD JOB", Color.green);
-            GameManager.ShowFloatingTextPopup("LEVEL COMPLETED!", Color.green);
-            GameManager.StopPlayer();
+            finishMenuUI.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                GameManager.StopPlayer();
+                StartCoroutine(Wait());
+                finishMenuUI.SetActive(true);
+            }
+        }
+        
+        private IEnumerator Wait()
+        {
+            yield return new WaitForSeconds(2);
         }
     }
 }

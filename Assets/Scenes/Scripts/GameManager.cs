@@ -10,16 +10,6 @@ namespace Scenes.Scripts
         public static PlayerMovement playerMovement;
         public static GenerateObstacle Obstacle;
         private static FloatingText curFloatingText = null;
-        void Start()
-        {
-       
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
 
         public static void StopPlayer()
         {
