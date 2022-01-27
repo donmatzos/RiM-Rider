@@ -9,9 +9,9 @@ public class AudioController : MonoBehaviour
 
     public AudioClip SoundWin;
     public AudioClip SoundCrash;
-    public AudioClip SoundRimjob;
-    public AudioClip SoundRimmed;
-    
+    public List<AudioClip> RimjobSounds;
+    public List<AudioClip> RimmedSounds;
+
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -32,17 +32,22 @@ public class AudioController : MonoBehaviour
                 _audioSource.Play();
                 break;
             case AudioFiles.RIMJOB:
-                _audioSource.clip = SoundRimjob;
+                _audioSource.clip = GetRandomAudioClip(RimjobSounds);
                 _audioSource.Play();
                 break;
             
             case AudioFiles.RIMMED:
-                _audioSource.clip = SoundRimmed;
+                _audioSource.clip = GetRandomAudioClip(RimmedSounds);
                 _audioSource.Play();
                 break;
             
         }
         
+    }
+
+    private AudioClip GetRandomAudioClip(List<AudioClip> list)
+    {
+        return list[Random.Range(0, list.Count)];
     }
 }
 public enum AudioFiles

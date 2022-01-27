@@ -2344,8 +2344,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundWin: {fileID: 8300000, guid: cdc417809fe12d94a8fa7ad8384059a5, type: 3}
   SoundCrash: {fileID: 8300000, guid: d4bd6fbe17b2f8746a76bfaee7d5a302, type: 3}
-  SoundRimjob: {fileID: 8300000, guid: bab80a86443daa649b96c829df9ea0f0, type: 3}
-  SoundRimmed: {fileID: 8300000, guid: 1586644de31bdd6439cfffa7d6216775, type: 3}
+  RimjobSounds:
+  - {fileID: 8300000, guid: 3ad646e256d70c24696369090411c621, type: 3}
+  - {fileID: 8300000, guid: 309854df8b814e24399c1eb1f736e6f6, type: 3}
+  - {fileID: 8300000, guid: 19aacf4fbd57fc94c921bdc38754f451, type: 3}
+  - {fileID: 8300000, guid: c993de46bf19780419ed4edc4f14fa8e, type: 3}
+  - {fileID: 8300000, guid: b7025da837d14f842bc3e89b632a9b8b, type: 3}
+  - {fileID: 8300000, guid: 1f17579cb88b52a4da5eee0127f0d42e, type: 3}
+  - {fileID: 8300000, guid: 3e727bd01059e4f42946ee11fa81132b, type: 3}
+  - {fileID: 8300000, guid: 7309c17ca596a7646864b26047826b3f, type: 3}
+  - {fileID: 8300000, guid: 455102f473b5aa74aa02f36ce27e4e28, type: 3}
+  - {fileID: 8300000, guid: 1097837b8f0032a4b804e2a22e04ea8b, type: 3}
+  - {fileID: 8300000, guid: bab80a86443daa649b96c829df9ea0f0, type: 3}
+  RimmedSounds:
+  - {fileID: 8300000, guid: ef3c5b4ddf38fe04f825f88be90400a3, type: 3}
+  - {fileID: 8300000, guid: 8362b974e6b590f4bb0e5c7d0d5537df, type: 3}
+  - {fileID: 8300000, guid: 498f76e2b71260540abf0da7cdedd22f, type: 3}
+  - {fileID: 8300000, guid: 42c85c640a0065c4597531586e13f2ea, type: 3}
+  - {fileID: 8300000, guid: a3d08e8d43dcc51448008c774636ea96, type: 3}
+  - {fileID: 8300000, guid: ebb66cd0c8b686c428b0a680ad2ba0e1, type: 3}
+  - {fileID: 8300000, guid: 5d19f8193ffccf847baec61e24775dd5, type: 3}
+  - {fileID: 8300000, guid: 68e992f7e42344c4cb7e94ca233fdcd7, type: 3}
+  - {fileID: 8300000, guid: fad803e595f7d6f4cb8b557e2431958f, type: 3}
+  - {fileID: 8300000, guid: b6b10073f2d0a984f9bd034cfa3df73e, type: 3}
+  - {fileID: 8300000, guid: ef94ea6d355ef41428e3d962d6d9ee70, type: 3}
+  - {fileID: 8300000, guid: 1586644de31bdd6439cfffa7d6216775, type: 3}
 --- !u!4 &1245974892
 Transform:
   m_ObjectHideFlags: 0
