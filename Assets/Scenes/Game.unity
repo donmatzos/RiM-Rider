@@ -2344,8 +2344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundWin: {fileID: 8300000, guid: cdc417809fe12d94a8fa7ad8384059a5, type: 3}
   SoundCrash: {fileID: 8300000, guid: d4bd6fbe17b2f8746a76bfaee7d5a302, type: 3}
-  SoundRimjob: {fileID: 8300000, guid: ffae50204248d574bb12e101f8dae382, type: 3}
-  SoundRimmed: {fileID: 8300000, guid: 74708146ac929504e9ec5b9377f824ce, type: 3}
+  SoundRimjob: {fileID: 8300000, guid: bab80a86443daa649b96c829df9ea0f0, type: 3}
+  SoundRimmed: {fileID: 8300000, guid: 1586644de31bdd6439cfffa7d6216775, type: 3}
 --- !u!4 &1245974892
 Transform:
   m_ObjectHideFlags: 0
@@ -3267,6 +3267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundRimjob
       objectReference: {fileID: 0}
+    - target: {fileID: 6054167091667942614, guid: bf9d33c4c2087264fa20d2e68c75f59a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bab80a86443daa649b96c829df9ea0f0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf9d33c4c2087264fa20d2e68c75f59a, type: 3}
 --- !u!1001 &1752415453651671185
@@ -3415,6 +3419,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1134110162}
     m_Modifications:
+    - target: {fileID: 4368999304477696340, guid: 565c53f4a5866f244bea1c353987cb69, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ef94ea6d355ef41428e3d962d6d9ee70, type: 3}
     - target: {fileID: 6342440992136938984, guid: 565c53f4a5866f244bea1c353987cb69, type: 3}
       propertyPath: m_Name
       value: SoundRimmed
